@@ -67,7 +67,7 @@ play_again:
 	  card = 1;
 	}
 
-	else if (card == 120 || card == 88 || card == 0) {
+	else if (card == 72 || card == 40 || card == 0) {
 
 	  card = 10;
 	}
