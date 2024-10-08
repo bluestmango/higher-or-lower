@@ -47,6 +47,11 @@ int main() {
 		
 	  card = 1;
 	}
+
+	else if (card == 120 || card == 88 || card == 0) {
+
+	  card = 10;
+	}
 		  
 	else if (card == 26 || card == 58) {
 		
