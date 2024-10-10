@@ -37,7 +37,6 @@ int main() {
    int card = 0, lastCard = 0;
    int higher = 0, lower = 0;
    
-play_again:
    //start loop here
  while (true) {
 	 
@@ -99,7 +98,7 @@ play_again:
 		
 	  if (asktoreplay(card, lastGuess, deck)) {
 		  
-		  goto play_again;
+		  continue;
 	  }
 	  else {
 		  
