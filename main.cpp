@@ -4,6 +4,24 @@
 #include <ctime>
 using namespace std;
 
+bool asktoreplay(int& card, bool& lastGuess, vector<int> deck) {
+	
+	cout << "\nGAME OVER";
+	cout << "\nReplay? (y/n) ";
+	char replay;
+	cin >> replay;
+	
+	if (replay == 'y') {
+		
+		card = 0;
+		lastGuess;
+		deck = {1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8,
+                  8, 8, 9, 9, 9, 9, 10, 10, 10, 10, 11, 11, 11, 11, 12, 12, 12, 12, 13, 13, 13, 13};
+		return 1;
+	}
+	return 0;
+}
+
 int main() {
 
    //initialize deck
@@ -47,6 +65,11 @@ int main() {
 		
 	  card = 1;
 	}
+
+	else if (card == 72 || card == 40 || card == 0) {
+
+	  card = 10;
+	}
 		  
 	else if (card == 26 || card == 58) {
 		
@@ -70,14 +93,18 @@ int main() {
 	  }
 	
    
-   //check whether the previous guess was correct. Terminate program if not
-	if (card > lastCard && lastGuess == 0) {
+   //check whether the previous guess was correct. Ask to replay if not
+	if (card > lastCard && lastGuess == 0 || card < lastCard && lastGuess == 1) {
 		
-	  return 0;
-	}
-	else if (card < lastCard && lastGuess == 1) {
-		
-	  return 0;
+	  if (asktoreplay(card, lastGuess, deck)) {
+		  
+		  continue;
+	  }
+	  else {
+		  
+		  return 0;
+	  }
+	  
 	}
 	
   //iterate through deck, tally higher/lower cards, & delete pulled card
